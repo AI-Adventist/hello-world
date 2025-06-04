@@ -1,0 +1,70 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background-color: #f0f0f0;
+    /* display: flex; remove flex from body if #threejs-container is fullscreen */
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* height: 100vh; */
+}
+
+#threejs-container {
+    position: fixed; /* Or absolute, depending on desired scroll behavior */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1; /* Behind the webcam container */
+}
+
+.container { /* This is the webcam/pose container */
+    position: fixed; /* Changed from relative/absolute */
+    bottom: 20px;
+    left: 20px;
+    width: 320px; /* Smaller width */
+    height: 240px; /* Smaller height */
+    z-index: 100; /* Ensure it's on top of the Three.js canvas */
+    border: 1px solid grey; /* Optional: for visibility */
+}
+
+#webcamFeed, #poseCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#webcamFeed {
+    border: 1px solid black; /* Thinner border */
+    object-fit: cover;
+}
+
+#poseCanvas {
+    /* border: 1px solid blue; Optional: for visibility, changed color */
+    z-index: 10; /* Ensure canvas is on top of video, within its container */
+}
+
+#ui-controls {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    z-index: 200; /* Above other elements */
+}
+
+#ui-controls button {
+    padding: 10px 15px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+}
+
+#ui-controls button:hover {
+    background-color: #45a049;
+}
